@@ -38,28 +38,15 @@ const Topbar = () => {
       >
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
 
-          <Box display="flex" alignItems="center" gap="0.5rem">
-            <FaReact
-              size={32}
-              color="#0000FF"
-              style={{
-                animation: 'spin 2s linear infinite',
-              }}
-            />
-            <Typography
-              variant="h6"
-              sx={{
-                fontFamily: '"Sour Gummy", sans-serif',
-                fontWeight: 700,
-                letterSpacing: 2,
-                color: 'blue',
-                textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
-                fontSize: '21px',
-              }}
-            >
-              BookDev
-            </Typography>
-          </Box>
+          <Box
+            component="img"
+            src="/src/assets/BookDev_logo.png"
+            alt="BookDev Logo"
+            sx={{
+              width: '10rem',
+              height: '3rem',
+            }}
+          />
 
           <Box display="flex" alignItems="center" gap="1.5rem">
             <Tooltip title="Home">
