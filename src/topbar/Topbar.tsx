@@ -40,7 +40,7 @@ const Topbar = () => {
 
           <Box
             component="img"
-            src="/src/assets/BookDev_logo.png"
+            src="../src/assets/BookDev_logo.png"
             alt="BookDev Logo"
             sx={{
               width: '10rem',
