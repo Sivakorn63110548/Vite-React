@@ -170,7 +170,12 @@ export default class SentMail extends Component {
                       variant="contained"
                       color="error"
                       onClick={this.handleDownloadPDF}
-                      sx={{ flex: 1 }}
+                      sx={{
+                        flex: 1,
+                        '&:hover': {
+                          backgroundColor: 'red',
+                        },
+                      }}
                       startIcon={<GetAppIcon />}
                     >
                       Download PDF
