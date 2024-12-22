@@ -1,10 +1,10 @@
-import { AppBar, Toolbar, IconButton, Tooltip, Box, Typography } from '@mui/material';
+import { AppBar, Toolbar, IconButton, Tooltip, Box } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
 import ContactsIcon from '@mui/icons-material/Contacts';
-import { FaReact, FaSun, FaMoon } from "react-icons/fa";
+import { FaSun, FaMoon } from "react-icons/fa";
 import { useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
