@@ -4,21 +4,17 @@ import InfoIcon from '@mui/icons-material/Info';
 import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
 import ContactsIcon from '@mui/icons-material/Contacts';
-import { FaReact } from "react-icons/fa";
-import { FaSun, FaMoon } from "react-icons/fa";
+import { FaReact, FaSun, FaMoon } from "react-icons/fa";
 import { useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const Topbar = () => {
-  // State to manage theme toggle
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
-  // Toggle theme
   const toggleTheme = () => {
-    setDarkMode(!darkMode);
+    setDarkMode(prevMode => !prevMode);
   };
 
-  // Create theme based on darkMode state
   const theme = createTheme({
     palette: {
       mode: darkMode ? 'dark' : 'light',
@@ -38,16 +34,14 @@ const Topbar = () => {
           top: 0,
           zIndex: 1100,
           color: '#73738d',
-          
         }}
       >
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
 
-          {/* Left Section: Logo and Menu */}
           <Box display="flex" alignItems="center" gap="0.5rem">
             <FaReact
               size={32}
-              color="blue"
+              color="#0000FF"
               style={{
                 animation: 'spin 2s linear infinite',
               }}
@@ -60,16 +54,14 @@ const Topbar = () => {
                 letterSpacing: 2,
                 color: 'blue',
                 textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
-                fontSize: '19px',
+                fontSize: '21px',
               }}
             >
               BookDev
             </Typography>
           </Box>
 
-          {/* Center Section: Navigation Menu */}
           <Box display="flex" alignItems="center" gap="1.5rem">
-            {/* Home Icon */}
             <Tooltip title="Home">
               <IconButton
                 color="inherit"
@@ -84,7 +76,6 @@ const Topbar = () => {
               </IconButton>
             </Tooltip>
 
-            {/* About Icon */}
             <Tooltip title="About">
               <IconButton
                 color="inherit"
@@ -99,7 +90,6 @@ const Topbar = () => {
               </IconButton>
             </Tooltip>
 
-            {/* Skills Icon */}
             <Tooltip title="Skills">
               <IconButton
                 color="inherit"
@@ -114,7 +104,6 @@ const Topbar = () => {
               </IconButton>
             </Tooltip>
 
-            {/* History Icon */}
             <Tooltip title="History">
               <IconButton
                 color="inherit"
@@ -129,7 +118,6 @@ const Topbar = () => {
               </IconButton>
             </Tooltip>
 
-            {/* Education Icon */}
             <Tooltip title="Education">
               <IconButton
                 color="inherit"
@@ -144,7 +132,6 @@ const Topbar = () => {
               </IconButton>
             </Tooltip>
 
-            {/* Work Experience Icon */}
             <Tooltip title="Work Experience">
               <IconButton
                 color="inherit"
@@ -159,7 +146,6 @@ const Topbar = () => {
               </IconButton>
             </Tooltip>
 
-            {/* Contact Icon */}
             <Tooltip title="Contact">
               <IconButton
                 color="inherit"
@@ -175,15 +161,9 @@ const Topbar = () => {
             </Tooltip>
           </Box>
 
-          {/* Right Section: Theme Toggle */}
           <Box display="flex" alignItems="center">
             <IconButton onClick={toggleTheme} color="inherit">
-              {/* Toggle between Sun and Moon Icons based on darkMode */}
-              {darkMode ? (
-                <FaMoon size={20} color="blue" />
-              ) : (
-                <FaSun size={20} color="yellow" />
-              )}
+              {darkMode ? <FaMoon size={20} color="blue" /> : <FaSun size={20} color="yellow" />}
             </IconButton>
           </Box>
 
