@@ -7,6 +7,7 @@ import ContactsIcon from '@mui/icons-material/Contacts';
 import { FaSun, FaMoon } from "react-icons/fa";
 import { useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Logo from '../assets/BookDev_logo.png'
 
 const Topbar = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -40,7 +41,7 @@ const Topbar = () => {
 
           <Box
             component="img"
-            src="/assets/BookDev_logo.png"
+            src={Logo}
             alt="BookDev Logo"
             sx={{
               width: '10rem',
