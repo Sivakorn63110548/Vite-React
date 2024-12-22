@@ -77,7 +77,7 @@ export default class SentMail extends Component {
   };
 
   handleDownloadPDF = () => {
-    const pdfPath = '../assets/file/Resume_Sivakorn.pdf';
+    const pdfPath = '/assets/file/Resume_Sivakorn.pdf';
     const link = document.createElement('a');
     link.href = pdfPath;
     link.download = 'Resume_Sivakorn.pdf';
