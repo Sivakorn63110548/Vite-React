@@ -6,6 +6,7 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import GetAppIcon from '@mui/icons-material/GetApp';
 import emailjs from 'emailjs-com';
 import ErrorIcon from '@mui/icons-material/Error';
+import Resume_pdf from '../assets/file/Resume_Sivakorn.pdf'
 
 export default class SentMail extends Component {
   static propTypes = {
@@ -77,7 +78,7 @@ export default class SentMail extends Component {
   };
 
   handleDownloadPDF = () => {
-    const pdfPath = '/assets/file/Resume_Sivakorn.pdf';
+    const pdfPath = Resume_pdf;
     const link = document.createElement('a');
     link.href = pdfPath;
     link.download = 'Resume_Sivakorn.pdf';
