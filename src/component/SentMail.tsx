@@ -36,8 +36,8 @@ export default class SentMail extends Component {
   handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     const { email, emailError } = this.state;
-
-    if (emailError) {
+    
+    if (emailError || !email) {
       this.setState({
         openSnackbar: true,
         snackbarMessage: 'อีเมลไม่ถูกต้อง!',
@@ -59,7 +59,7 @@ export default class SentMail extends Component {
       )
       .then(
         (response) => {
-          console.log('Email sent successfully:', response);
+          console.log('Email sent to :', email, response);
           this.setState({
             openSnackbar: true,
             snackbarMessage: 'อีเมลถูกส่งสำเร็จ!',
@@ -67,7 +67,7 @@ export default class SentMail extends Component {
           });
         },
         (error) => {
-          console.log('Error sending email:', error);
+          console.log('Error sending email:',email , error);
           this.setState({
             openSnackbar: true,
             snackbarMessage: 'การส่งอีเมลล้มเหลว.',
@@ -138,7 +138,7 @@ export default class SentMail extends Component {
                 <TextField
                   label="Email"
                   variant="outlined"
-                  value={email}
+                  value={this.state.email}
                   onChange={this.handleChange}
                   fullWidth
                   sx={{
