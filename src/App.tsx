@@ -1,6 +1,7 @@
 import Topbar from './topbar/Topbar';
 import SentMail from './component/SentMail';
 import Profile from './component/Profile';
+import Skill from './component/Skill';
 
 function App() {
 
@@ -26,6 +27,10 @@ function App() {
           }}
         >
           <Profile />
+          <br></br>
+          <br></br>
+          <br></br>
+          <Skill />
         </div>
 
       </div>

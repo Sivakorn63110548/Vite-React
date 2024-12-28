@@ -98,7 +98,7 @@ export default class SentMail extends Component {
   };
 
   render() {
-    const { email, openSnackbar, snackbarMessage, snackbarSeverity, emailError } = this.state;
+    const { openSnackbar, snackbarMessage, snackbarSeverity, emailError } = this.state;
 
     return (
       <>
