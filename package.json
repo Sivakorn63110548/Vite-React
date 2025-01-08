@@ -30,6 +30,7 @@
     "@types/react": "^18.3.16",
     "@types/react-dom": "^18.3.5",
     "@types/react-scroll": "^1.8.10",
+    "@types/swiper": "^5.4.3",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9.15.0",
     "eslint-plugin-react-hooks": "^5.0.0",

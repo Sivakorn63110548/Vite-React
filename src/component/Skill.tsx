@@ -2,12 +2,7 @@ import { Box, Typography, Card, CardContent, CardActionArea } from '@mui/materia
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import WorkIcon from '@mui/icons-material/Work';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-
+import 'swiper/swiper-bundle.css';
 
 import AngularLogo from '../assets/icon/angular.png';
 import ReactLogo from '../assets/icon/react.png';
