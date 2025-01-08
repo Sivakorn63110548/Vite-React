@@ -1,4 +1,13 @@
-import { Box, Grid, Typography, Card, CardContent } from '@mui/material';
+import { Box, Typography, Card, CardContent, CardActionArea } from '@mui/material';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import WorkIcon from '@mui/icons-material/Work';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
 
 import AngularLogo from '../assets/icon/angular.png';
 import ReactLogo from '../assets/icon/react.png';
@@ -53,52 +62,54 @@ function Skill() {
 
   return (
     <Box sx={{ padding: '2rem' }}>
-      <Grid container spacing={3} justifyContent="center" marginBottom={5}>
-        <Grid
-          item
-          xs={12}
-          lg={6}
-          sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}
-        >
-          <Typography variant="h3" sx={{ fontWeight: 'bold', marginBottom: '1rem', color: '#333' }}>
-            Skills
-          </Typography>
-          <Typography variant="body1" sx={{ color: '#6c757d', marginBottom: '2rem' }}>
-            My programming skills accumulated from past work experiences.
-          </Typography>
-        </Grid>
-      </Grid>
-
-      <Grid container spacing={3}>
+      <Typography
+        variant="h4"
+        sx={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '2rem', color: '#333' }}
+      >
+        <WorkIcon style={{ fontSize: '4.2vh' }}></WorkIcon> Work Skills
+      </Typography>
+      <Swiper
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        spaceBetween={50}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+        scrollbar={{ draggable: true }}
+        style={{ height: '23rem' }}
+      >
         {skills.map((category, index) => (
-          <Grid item xs={6} lg={4} key={index}>
-            <Box sx={{ marginBottom: '2rem' }}>
-              <Typography variant="h4" sx={{ fontWeight: 'bold', marginBottom: '1rem', color: '#333' }}>
+          <SwiperSlide key={index}>
+            <Box sx={{ textAlign: 'center' }}>
+              <Typography variant="h5" sx={{ marginBottom: '1rem', color: '#00BCD4' }}>
                 {category.title}
               </Typography>
-              <Typography variant="body2" sx={{ color: '#6c757d', marginBottom: '1rem' }}>
+              <Typography variant="body2" sx={{ color: '#6c757d', marginBottom: '2rem' }}>
                 {category.description}
               </Typography>
-            </Box>
-
-            <Grid container spacing={3}>
-              {category.items.map((item, index) => (
-                <Grid item xs={12} sm={6} md={4} key={index}>
-                  <a href={item.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
-                    <Card
-                      sx={{
-                        backgroundColor: '#fff',
-                        boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
-                        borderRadius: '10px',
-                        transition: 'transform 0.3s, box-shadow 0.3s',
-                        '&:hover': {
-                          transform: 'scale(1.05)',
-                          boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.2)',
-                        },
-                      }}
+              <Box sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '1.5rem' }}>
+                {category.items.map((item, idx) => (
+                  <Card
+                    key={idx}
+                    sx={{
+                      width: '15%',
+                      backgroundColor: '#fff',
+                      boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
+                      borderRadius: '10px',
+                      transition: 'transform 0.3s, box-shadow 0.3s',
+                      '&:hover': {
+                        transform: 'scale(1.05)',
+                        boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.2)',
+                      },
+                    }}
+                  >
+                    <CardActionArea
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      sx={{ textDecoration: 'none' }}
                     >
                       <CardContent
-                        sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '2rem' }}
+                        sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '1.5rem' }}
                       >
                         <Box sx={{ mb: 2 }}>
                           <img
@@ -111,14 +122,14 @@ function Skill() {
                           {item.name}
                         </Typography>
                       </CardContent>
-                    </Card>
-                  </a>
-                </Grid>
-              ))}
-            </Grid>
-          </Grid>
+                    </CardActionArea>
+                  </Card>
+                ))}
+              </Box>
+            </Box>
+          </SwiperSlide>
         ))}
-      </Grid>
+      </Swiper>
     </Box>
   );
 }

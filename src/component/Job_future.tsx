@@ -10,7 +10,7 @@ function Job_future() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '400px',
+        height: '440px',
       }}
     >
       <Box
