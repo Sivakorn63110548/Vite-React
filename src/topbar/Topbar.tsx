@@ -5,12 +5,17 @@ import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
 import ContactsIcon from '@mui/icons-material/Contacts';
 import { FaSun, FaMoon } from "react-icons/fa";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Logo from '../assets/BookDev_logo.png'
+import { To, useLocation, useNavigate } from 'react-router-dom';
+import Loading from '../component/Loading';
 
 const Topbar = () => {
   const [darkMode, setDarkMode] = useState(true);
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const location = useLocation();
 
   const toggleTheme = () => {
     setDarkMode(prevMode => !prevMode);
@@ -22,8 +27,20 @@ const Topbar = () => {
     },
   });
 
+  const handleNavigate = (path: To) => {
+    if (location.pathname !== path) {
+      setLoading(true);
+      navigate(path);
+    }
+  };
+
+  useEffect(() => {
+    setLoading(false);
+  }, [location]);
+
   return (
     <ThemeProvider theme={theme}>
+      {loading && <Loading />}
       <AppBar
         position="fixed"
         sx={{
@@ -53,6 +70,7 @@ const Topbar = () => {
             <Tooltip title="Home">
               <IconButton
                 color="inherit"
+                onClick={() => handleNavigate('/home')}
                 sx={{
                   '&:hover': {
                     boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
@@ -67,6 +85,7 @@ const Topbar = () => {
             <Tooltip title="About">
               <IconButton
                 color="inherit"
+                onClick={() => handleNavigate('/About')}
                 sx={{
                   '&:hover': {
                     boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
