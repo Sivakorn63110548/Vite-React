@@ -52,7 +52,7 @@ const Home = () => {
               backgroundColor: '#f8986e',
               zIndex: 0,
               left: '50%',
-              top: '77%',
+              top: '76%',
               transform: 'translate(-50%, -50%)',
             }}
           />

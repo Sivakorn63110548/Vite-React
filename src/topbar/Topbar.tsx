@@ -123,7 +123,7 @@ const Topbar = () => {
               src={Logo}
               alt="BookDev Logo"
               sx={{
-                width: '20rem',
+                width: '15rem',
                 height: '3rem',
                 objectFit: 'contain',
                 position: 'relative',
