@@ -3,6 +3,7 @@ import { Box, Typography, Button, Rating } from '@mui/material';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 
 import Book from '../assets/Book.png';
+import { motion } from 'framer-motion';
 
 const Home = () => {
   const [selected, setSelected] = useState('Portfolio');
@@ -39,7 +40,7 @@ const Home = () => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            width: '100%'
+            width: '100%',
           }}
         >
           <Box
@@ -56,36 +57,48 @@ const Home = () => {
             }}
           />
 
-          <Typography
-            variant="h2"
-            sx={{
-              fontWeight: 'bold',
-              mb: 2,
-              textAlign: 'center',
-              zIndex: 1,
-              '& span': {
-                color: '#FF6B2B',
-              },
-            }}
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
           >
-            I'm <span>Book</span>,<br />
-            ⚙️ Full Stack Developer
-          </Typography>
+            <Typography
+              variant="h2"
+              sx={{
+                fontWeight: 'bold',
+                mb: 2,
+                textAlign: 'center',
+                zIndex: 1,
+                '& span': {
+                  color: '#FF6B2B',
+                },
+              }}
+            >
+              I'm <span>Book</span>,<br />
+              ⚙️ Full Stack Developer
+            </Typography>
+          </motion.div>
 
-          <Box
-            component="img"
-            src={Book}
-            alt="Profile"
-            sx={{
-              width: '40rem',
-              height: '33rem',
-              objectFit: 'cover',
-              borderRadius: '16px',
-              position: 'relative',
-              zIndex: 1,
-              marginTop: '-6rem'
-            }}
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+          >
+            <Box
+              component="img"
+              src={Book}
+              alt="Profile"
+              sx={{
+                width: '40rem',
+                height: '33rem',
+                objectFit: 'cover',
+                borderRadius: '16px',
+                position: 'relative',
+                zIndex: 1,
+                marginTop: '-6rem',
+              }}
+            />
+          </motion.div>
 
           <Box
             sx={{
@@ -97,9 +110,11 @@ const Home = () => {
               boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
               position: 'absolute',
               border: '1px solid rgba(255, 255, 255, 0.4)',
-              marginTop: '73vh'
+              marginTop: '73vh',
             }}
           >
+
+
             <Button
               variant="contained"
               onClick={() => handleSelect('Portfolio')}
@@ -138,52 +153,62 @@ const Home = () => {
             </Button>
           </Box>
 
-          <Box
-            sx={{
-              position: 'absolute',
-              left: '9rem',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              textAlign: 'center',
-              background: '#fff',
-              padding: '8px 16px',
-            }}
+          <motion.div
+            initial={{ opacity: 0, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
           >
-            <Typography
-              variant="body1"
+            <Box
               sx={{
-                color: 'text.secondary',
-                mb: 3,
+                position: 'absolute',
+                left: '9rem',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                textAlign: 'center',
+                padding: '8px 16px',
               }}
             >
-              Exceptional product design,<br />
-              our website's success.<br />
-              Recommended
-            </Typography>
-          </Box>
+              <Typography
+                variant="body1"
+                sx={{
+                  color: 'text.secondary',
+                  mb: 3,
+                }}
+              >
+                Exceptional product design,<br />
+                our website's success.<br />
+                Recommended
+              </Typography>
+            </Box>
+          </motion.div>
 
-          <Box
-            sx={{
-              position: 'absolute',
-              right: '9rem',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              textAlign: 'center',
-              background: '#fff',
-              padding: '8px 16px',
-            }}
+          <motion.div
+            initial={{ opacity: 0, x: '0' }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 1 }}
           >
-            <Rating value={5} readOnly size="medium" sx={{ color: '#FF6B2B' }} />
-            <Typography variant="h4" sx={{ fontWeight: 'bold', mt: 1 }}>
-              1 Years
-            </Typography>
-            <Typography variant="body2" color="text.secondary" textAlign="right">
-              Experience
-            </Typography>
-          </Box>
+            <Box
+              sx={{
+                position: 'absolute',
+                right: '9rem',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                textAlign: 'center',
+                padding: '8px 16px',
+              }}
+            >
+              <Rating value={5} readOnly size="medium" sx={{ color: '#FF6B2B' }} />
+              <Typography variant="h4" sx={{ fontWeight: 'bold', mt: 1 }}>
+                1 Year
+              </Typography>
+              <Typography variant="body2" color="text.secondary" textAlign="right">
+                Experience
+              </Typography>
+            </Box>
+          </motion.div>
         </Box>
       </Box>
-    </Box>
+    </Box >
   );
 };
 
