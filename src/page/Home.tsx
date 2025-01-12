@@ -235,6 +235,7 @@ const Home = () => {
       <div
         className="main-contain"
         style={{
+          position:'relative',
           width: '97%',
           borderRadius: '15px',
           padding: '20px',
@@ -244,12 +245,11 @@ const Home = () => {
           boxShadow: '0 8px 16px rgba(0, 0, 0, 0.4)',
           overflow: 'hidden',
           height: '50rem',
+          zIndex: '2'
         }}
       >
         <h2 style={{ textAlign: 'center', margin: 0 }}>Your Content Here</h2>
       </div>
-
-
     </>
 
   );
