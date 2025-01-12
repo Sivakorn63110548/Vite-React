@@ -108,7 +108,7 @@ const Topbar = () => {
               sx={{
                 position: 'absolute',
                 top: '41%',
-                left: '33.5%',
+                left: '28.5%',
                 width: '51px',
                 height: '50px',
                 transform: 'translate(-50%, -50%)',
