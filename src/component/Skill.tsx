@@ -59,7 +59,7 @@ function Skill() {
     <Box sx={{ padding: '2rem' }}>
       <Typography
         variant="h4"
-        sx={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '2rem', color: '#333' }}
+        sx={{ fontWeight: 'bold', textAlign: 'center', marginBottom: '2rem', color: 'white' }}
       >
         <WorkIcon style={{ fontSize: '4.2vh' }}></WorkIcon> Work Skills
       </Typography>
@@ -75,7 +75,7 @@ function Skill() {
         {skills.map((category, index) => (
           <SwiperSlide key={index}>
             <Box sx={{ textAlign: 'center' }}>
-              <Typography variant="h5" sx={{ marginBottom: '1rem', color: '#00BCD4' }}>
+              <Typography variant="h5" sx={{ marginBottom: '1rem', color: 'white' }}>
                 {category.title}
               </Typography>
               <Typography variant="body2" sx={{ color: '#6c757d', marginBottom: '2rem' }}>
@@ -87,7 +87,8 @@ function Skill() {
                     key={idx}
                     sx={{
                       width: '15%',
-                      backgroundColor: '#fff',
+                      backgroundColor: 'transparent',
+                      color: 'white',
                       boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
                       borderRadius: '10px',
                       transition: 'transform 0.3s, box-shadow 0.3s',
@@ -113,7 +114,7 @@ function Skill() {
                             style={{ width: '60px', height: '60px', borderRadius: '5px' }}
                           />
                         </Box>
-                        <Typography variant="h6" sx={{ fontWeight: 'medium', color: '#333' }}>
+                        <Typography variant="h6" sx={{ fontWeight: 'medium', color: 'whites' }}>
                           {item.name}
                         </Typography>
                       </CardContent>
