@@ -295,10 +295,10 @@ const Home = () => {
             position: 'absolute',
             inset: '0',
             background: `
-              linear-gradient(135deg, rgba(0, 0, 0, 0.8) 30%, rgba(255, 107, 43, 0.2) 100%),
-              url('https://www.transparenttextures.com/patterns/3px-tile.png')
+              linear-gradient(rgba(0, 0, 0, 0.2) 30%, rgba(255, 107, 43, 0.2) 100%),
+              url('https://www.transparenttextures.com/patterns/robots.png')
             `,
-            backgroundSize: 'cover',
+            backgroundSize: 'auto',
             opacity: 0.6,
             zIndex: 1,
           }}

@@ -1,9 +1,7 @@
 
 import { Box } from '@mui/material';
 import Profile from '../component/Profile';
-import Skill from '../component/Skill';
-import Job_future from '../component/Job_future';
-import Language from '../component/Language';
+import Map from '../component/map'
 
 function About() {
   return (
@@ -25,17 +23,9 @@ function About() {
           </Box>
 
           <Box sx={{ marginBottom: '4rem' }}>
-            <Skill />
+            <Map />
           </Box>
-
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', gap: '2rem', width: '80%', marginLeft: '10%' }}>
-            <Box sx={{ flex: 1 }}>
-              <Job_future />
-            </Box>
-            <Box sx={{ flex: 1 }}>
-              <Language />
-            </Box>
-          </Box>
+         
         </Box>
       </div>
 

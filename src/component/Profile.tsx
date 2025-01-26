@@ -1,6 +1,6 @@
 import { Box, Typography, Stack } from '@mui/material';
 import { CalendarToday, LocationOn, Phone } from '@mui/icons-material';
-import bookImage from '../assets/Book.png';
+import bookImage from '../assets/Book2.png';
 import React from 'react';
 import EmailIcon from '@mui/icons-material/Email';
 import FacebookIcon from '@mui/icons-material/Facebook';
