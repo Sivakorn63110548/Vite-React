@@ -1,33 +1,40 @@
-# 💼 Resume Builder - Vite + React + Material UI
+# 💼 Vite + React Resume Template  
+🚀 Built with **React + Vite**, styled with **Material UI (MUI)** and **Tailwind CSS**
 
-A modern and responsive **Resume / Portfolio** web application built using **Vite**, **React**, and **Material UI (MUI)**. This project is perfect for developers and professionals who want to showcase their experience, skills, and projects with a sleek and customizable design.
+A blazing-fast and beautifully designed resume / portfolio site. Combine the power of **MUI**’s prebuilt components with the flexibility of **Tailwind CSS** utility classes for total control over your layout.
+
+---
 
 ## ✨ Features
 
-- ⚡️ Fast development with [Vite](https://vitejs.dev/)
-- 💅 Clean and modern UI with [Material UI](https://mui.com/)
-- 📱 Fully responsive design for mobile, tablet, and desktop
-- 🎨 Easily customizable styles and components
-- 🧩 Component-based architecture with reusability in mind
-- 🌐 Deployable on GitHub Pages, Vercel, Netlify, etc.
+- ⚡ **Vite** for ultra-fast bundling and hot reload
+- 🧱 **Material UI** (MUI) for clean, accessible React components
+- 🎨 **Tailwind CSS** for utility-first custom styling
+- 📱 Fully **responsive design**
+- 🌙 Optional **dark mode**
+- 📦 Easy to **deploy** to GitHub Pages, Netlify, Vercel, or static host
+- 🧩 Modular and reusable sections (About, Skills, Experience, etc.)
 
-## 🖼️ Screenshots
+---
 
-> _You can add screenshots here to showcase your resume UI._
+## 🖼️ Preview
 
-## 🚀 Getting Started
+> *(ใส่ภาพตัวอย่างหน้าจอ Desktop & Mobile ของหน้า Resume ตรงนี้)*
 
-### Prerequisites
+---
 
-- Node.js (v16+ recommended)
-- npm or yarn
+## 🚀 Quick Start
 
-### Installation
+### 🧰 Prerequisites
+
+- Node.js `v16+`
+- npm หรือ yarn
+
+### 📦 Installation
 
 ```bash
-# Clone the repo
-git clone https://github.com/your-username/resume-vite-react-mui.git
-cd resume-vite-react-mui
+git clone https://github.com/Sivakorn63110548/Vite-React.git
+cd Vite-React
 
 # Install dependencies
 npm install
