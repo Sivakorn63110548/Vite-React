@@ -38,3 +38,61 @@ cd Vite-React
 npm install
 # or
 yarn install
+
+
+☁️ Deploy to Vercel
+✅ Steps
+Go to https://vercel.com and sign in with GitHub.
+
+Click “New Project” and import this repository.
+
+Accept the default settings:
+
+Framework Preset: Vite
+
+Build Command: vite build
+
+Output Directory: dist
+
+Click “Deploy”
+
+Done! 🎉 Your resume is live.
+
+You can also deploy via Vercel CLI:
+
+bash
+Copy
+Edit
+npm install -g vercel
+vercel
+🧩 Folder Structure
+arduino
+Copy
+Edit
+Vite-React/
+├── public/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── data/
+│   ├── styles/
+│   └── main.tsx
+├── tailwind.config.js
+├── vite.config.ts
+├── package.json
+└── README.md
+📄 License
+MIT License — Feel free to use and customize!
+
+🙌 Acknowledgments
+Built with ❤️ using:
+
+React
+
+Vite
+
+Material UI
+
+Tailwind CSS
+
+Vercel
