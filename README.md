@@ -1,4 +1,4 @@
-# 💼 Vite + React Resume Template  
+![image](https://github.com/user-attachments/assets/cb184702-8f44-44b4-9a5c-d31d84a3474e)# 💼 Vite + React Resume Template  
 🚀 Built with **React + Vite**, styled with **Material UI (MUI)** and **Tailwind CSS**
 
 A blazing-fast and beautifully designed resume / portfolio site. Combine the power of **MUI**’s prebuilt components with the flexibility of **Tailwind CSS** utility classes for total control over your layout.
@@ -18,8 +18,7 @@ A blazing-fast and beautifully designed resume / portfolio site. Combine the pow
 ---
 
 ## 🖼️ Preview
-![Uploading image.png…]()
-
+https://bookdev-vite-react.vercel.app/home
 ---
 
 ## 🚀 Quick Start
