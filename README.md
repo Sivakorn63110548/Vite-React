@@ -18,8 +18,7 @@ A blazing-fast and beautifully designed resume / portfolio site. Combine the pow
 ---
 
 ## 🖼️ Preview
-
-> *(ใส่ภาพตัวอย่างหน้าจอ Desktop & Mobile ของหน้า Resume ตรงนี้)*
+![Uploading image.png…]()
 
 ---
 
