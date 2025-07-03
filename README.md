@@ -1,50 +1,35 @@
-# React + TypeScript + Vite
+# 💼 Resume Builder - Vite + React + Material UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive **Resume / Portfolio** web application built using **Vite**, **React**, and **Material UI (MUI)**. This project is perfect for developers and professionals who want to showcase their experience, skills, and projects with a sleek and customizable design.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ⚡️ Fast development with [Vite](https://vitejs.dev/)
+- 💅 Clean and modern UI with [Material UI](https://mui.com/)
+- 📱 Fully responsive design for mobile, tablet, and desktop
+- 🎨 Easily customizable styles and components
+- 🧩 Component-based architecture with reusability in mind
+- 🌐 Deployable on GitHub Pages, Vercel, Netlify, etc.
 
-## Expanding the ESLint configuration
+## 🖼️ Screenshots
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+> _You can add screenshots here to showcase your resume UI._
 
-- Configure the top-level `parserOptions` property like this:
+## 🚀 Getting Started
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Prerequisites
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- Node.js (v16+ recommended)
+- npm or yarn
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Installation
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+```bash
+# Clone the repo
+git clone https://github.com/your-username/resume-vite-react-mui.git
+cd resume-vite-react-mui
+
+# Install dependencies
+npm install
+# or
+yarn install
