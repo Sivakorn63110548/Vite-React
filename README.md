@@ -1,50 +1,98 @@
-# React + TypeScript + Vite
+![image](https://github.com/user-attachments/assets/cb184702-8f44-44b4-9a5c-d31d84a3474e)# 💼 Vite + React Resume Template  
+🚀 Built with **React + Vite**, styled with **Material UI (MUI)** and **Tailwind CSS**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A blazing-fast and beautifully designed resume / portfolio site. Combine the power of **MUI**’s prebuilt components with the flexibility of **Tailwind CSS** utility classes for total control over your layout.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+- ⚡ **Vite** for ultra-fast bundling and hot reload
+- 🧱 **Material UI** (MUI) for clean, accessible React components
+- 🎨 **Tailwind CSS** for utility-first custom styling
+- 📱 Fully **responsive design**
+- 🌙 Optional **dark mode**
+- 📦 Easy to **deploy** to GitHub Pages, Netlify, Vercel, or static host
+- 🧩 Modular and reusable sections (About, Skills, Experience, etc.)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+## 🖼️ Preview
+https://bookdev-vite-react.vercel.app/home
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🚀 Quick Start
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 🧰 Prerequisites
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- Node.js `v16+`
+- npm หรือ yarn
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### 📦 Installation
+
+```bash
+git clone https://github.com/Sivakorn63110548/Vite-React.git
+cd Vite-React
+
+# Install dependencies
+npm install
+# or
+yarn install
+
+
+☁️ Deploy to Vercel
+✅ Steps
+Go to https://vercel.com and sign in with GitHub.
+
+Click “New Project” and import this repository.
+
+Accept the default settings:
+
+Framework Preset: Vite
+
+Build Command: vite build
+
+Output Directory: dist
+
+Click “Deploy”
+
+Done! 🎉 Your resume is live.
+
+You can also deploy via Vercel CLI:
+
+bash
+Copy
+Edit
+npm install -g vercel
+vercel
+🧩 Folder Structure
+arduino
+Copy
+Edit
+Vite-React/
+├── public/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── data/
+│   ├── styles/
+│   └── main.tsx
+├── tailwind.config.js
+├── vite.config.ts
+├── package.json
+└── README.md
+📄 License
+MIT License — Feel free to use and customize!
+
+🙌 Acknowledgments
+Built with ❤️ using:
+
+React
+
+Vite
+
+Material UI
+
+Tailwind CSS
+
+Vercel
