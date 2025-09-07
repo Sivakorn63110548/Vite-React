@@ -3,11 +3,23 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Topbar from './topbar/Topbar';
 import Home from './page/Home';
 
+import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
+
+const theme = createTheme({
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        html: { fontSize: '90%' },
+      },
+    },
+  },
+});
+
 function App() {
-
-
   return (
     <>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
       <div className="topbar">
         <Router>
           <Topbar />
@@ -17,6 +29,7 @@ function App() {
           </Routes>
         </Router>
       </div>
+    </ThemeProvider>
     </>
   );
 }
