@@ -1,193 +1,182 @@
-import { AppBar, Toolbar, Box, Button } from '@mui/material';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import {
+  AppBar,
+  Toolbar,
+  Box,
+  Button,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  useMediaQuery,
+  LinearProgress
+} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
-import BuildIcon from '@mui/icons-material/Build';
 import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
+import BuildIcon from '@mui/icons-material/Build';
 import ContactsIcon from '@mui/icons-material/Contacts';
-import { useEffect, useState } from 'react';
+import CloseIcon from '@mui/icons-material/Close';
+
 import Logo from '../assets/BookDev_logo.png';
-import { To, useLocation, useNavigate } from 'react-router-dom';
-import Loading from '../component/Loading';
+import './Topbar.css';
 
-const Topbar = () => {
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
+const SECTIONS = [
+  { id: 'home', label: 'Home', icon: <HomeIcon /> },
+  { id: 'about', label: 'About', icon: <InfoIcon /> },
+  { id: 'skill', label: 'Skill', icon: <SchoolIcon /> },
+  { id: 'experience', label: 'Experience', icon: <WorkIcon /> },
+  { id: 'project', label: 'Project', icon: <BuildIcon /> },
+  { id: 'contact', label: 'Contact', icon: <ContactsIcon /> },
+] as const;
 
-  const handleNavigate = (path: To) => {
-    if (location.pathname !== path) {
-      setLoading(true);
-      navigate(path);
-    }
+type SectionId = typeof SECTIONS[number]['id'];
+
+const Topbar: React.FC = () => {
+  const appbarRef = useRef<HTMLDivElement | null>(null);
+  const [active, setActive] = useState<SectionId>('home');
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const isMobile = useMediaQuery('(max-width: 992px)');
+
+  const scrollToId = (id: SectionId) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const appbarH = appbarRef.current?.offsetHeight ?? 0;
+    const offset = 12;
+    const y = el.getBoundingClientRect().top + window.scrollY - appbarH - offset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+    setOpen(false);
   };
 
+  // Scroll spy to highlight active menu
+  const observers = useMemo(() => new Map<string, IntersectionObserver>(), []);
   useEffect(() => {
-    setLoading(false);
-  }, [location]);
+    const opts: IntersectionObserverInit = { root: null, threshold: 0.55 };
+    SECTIONS.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const ob = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActive(id as SectionId);
+        });
+      }, opts);
+      ob.observe(el);
+      observers.set(id, ob);
+    });
+    return () => {
+      observers.forEach((ob, id) => {
+        const el = document.getElementById(id);
+        if (el) ob.unobserve(el);
+      });
+      observers.clear();
+    };
+  }, [observers]);
 
-  const isActive = (path: string) => {
-    if(path == '/'){
-      path = path + 'home'
-    }
-    return location.pathname === path || (path === '/' && location.pathname === '/');
-  };
+  // Elevation on scroll + scroll progress
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 8);
+      const doc = document.documentElement;
+      const total = doc.scrollHeight - doc.clientHeight;
+      const pct = total > 0 ? (y / total) * 100 : 0;
+      setProgress(pct);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <>
-      {loading && <Loading />}
-      <AppBar
-        position="fixed"
-        sx={{
-          backgroundColor: 'black',
-          width: '80%',
-          borderRadius: '50px',
-          margin: '10px auto',
-          right: '10%',
-          top: 0,
-          zIndex: 1100,
-          color: '#73738d',
-        }}
-      >
-        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-          {/* Left Menu */}
-          <Box sx={{ display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'flex-start' }}>
-            <Button
-              sx={{
-                color: 'white',
-                textTransform: 'none',
-                width: '100%',
-                borderRadius: '25px',
-                '&:hover': {
-                  backgroundColor: '#FF6B2B',
-                },
-                backgroundColor: isActive('/') ? '#FF6B2B' : 'transparent',
-              }}
-              startIcon={<HomeIcon />}
-              onClick={() => handleNavigate('/')}
-            >
-              Home
-            </Button>
-            <Button
-              sx={{
-                color: 'white',
-                textTransform: 'none',
-                width: '100%',
-                borderRadius: '25px',
-                '&:hover': {
-                  backgroundColor: '#FF6B2B',
-                },
-                backgroundColor: isActive('/about') ? '#FF6B2B' : 'transparent',
-              }}
-              startIcon={<InfoIcon />}
-              onClick={() => handleNavigate('/about')}
-            >
-              About
-            </Button>
-            <Button
-              sx={{
-                color: 'white',
-                textTransform: 'none',
-                width: '100%',
-                borderRadius: '25px',
-                '&:hover': {
-                  backgroundColor: '#FF6B2B',
-                },
-                backgroundColor: isActive('/skill') ? '#FF6B2B' : 'transparent',
-              }}
-              startIcon={<SchoolIcon />}
-              onClick={() => handleNavigate('/skill')}
-            >
-              Skill
-            </Button>
+    <AppBar
+      ref={appbarRef}
+      position="fixed"
+      className={`topbar-appbar ${scrolled ? 'is-scrolled' : ''}`}
+    >
+      {/* subtle scroll progress */}
+      <LinearProgress variant="determinate" value={progress} className="topbar-progress" />
+
+      <Toolbar className="topbar-toolbar">
+        {/* Left (desktop) */}
+        {!isMobile && (
+          <Box className="topbar-menu left">
+            {SECTIONS.slice(0, 3).map((s) => (
+              <Button
+                key={s.id}
+                className={`topbar-btn ${active === s.id ? 'active' : ''}`}
+                startIcon={s.icon}
+                onClick={() => scrollToId(s.id)}
+              >
+                {s.label}
+              </Button>
+            ))}
           </Box>
+        )}
 
-          {/* Logo */}
-          <Box sx={{ position: 'relative', display: 'inline-block' }}>
-            <Box
-              sx={{
-                position: 'absolute',
-                top: '41%',
-                left: '28.5%',
-                width: '51px',
-                height: '50px',
-                transform: 'translate(-50%, -50%)',
-                backgroundColor: '#FF6B2B',
-                borderRadius: '50%',
-                padding: '0.5rem',
-                zIndex: 0,
-              }}
-            />
-            <Box
-              component="img"
-              src={Logo}
-              alt="BookDev Logo"
-              sx={{
-                width: '15rem',
-                height: '3rem',
-                objectFit: 'contain',
-                position: 'relative',
-                zIndex: 1,
-              }}
-            />
+        {/* Logo center */}
+        <Box className="topbar-logo-wrap">
+          <span className="topbar-glow" aria-hidden />
+          <Box className="topbar-logo-chip">
+            <Box component="img" src={Logo} alt="BookDev Logo" className="topbar-logo-img" />
           </Box>
+        </Box>
 
-          {/* Right Menu */}
-          <Box sx={{ display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'flex-end' }}>
-            <Button
-              sx={{
-                color: 'white',
-                textTransform: 'none',
-                width: '100%',
-                borderRadius: '25px',
-                '&:hover': {
-                  backgroundColor: '#FF6B2B',
-                },
-                backgroundColor: isActive('/experience') ? '#FF6B2B' : 'transparent',
-              }}
-              startIcon={<WorkIcon />}
-              onClick={() => handleNavigate('/experience')}
-            >
-              Experience
-            </Button>
-
-            <Button
-              sx={{
-                color: 'white',
-                textTransform: 'none',
-                width: '100%',
-                borderRadius: '25px',
-                '&:hover': {
-                  backgroundColor: '#FF6B2B',
-                },
-                backgroundColor: isActive('/project') ? '#FF6B2B' : 'transparent',
-              }}
-              startIcon={<BuildIcon />}
-              onClick={() => handleNavigate('/project')}
-            >
-              Project
-            </Button>
-
-            <Button
-              sx={{
-                color: 'white',
-                textTransform: 'none',
-                width: '100%',
-                borderRadius: '25px',
-                '&:hover': {
-                  backgroundColor: '#FF6B2B',
-                },
-                backgroundColor: isActive('/contact') ? '#FF6B2B' : 'transparent',
-              }}
-              startIcon={<ContactsIcon />}
-              onClick={() => handleNavigate('/contact')}
-            >
-              Contact
-            </Button>
+        {/* Right (desktop) */}
+        {!isMobile && (
+          <Box className="topbar-menu right">
+            {SECTIONS.slice(3).map((s) => (
+              <Button
+                key={s.id}
+                className={`topbar-btn ${active === s.id ? 'active' : ''}`}
+                startIcon={s.icon}
+                onClick={() => scrollToId(s.id)}
+              >
+                {s.label}
+              </Button>
+            ))}
           </Box>
-        </Toolbar>
-      </AppBar>
-    </>
+        )}
+
+        {/* Burger (mobile) */}
+        {isMobile && (
+          <IconButton className="topbar-burger" onClick={() => setOpen(true)} aria-label="open menu">
+            <MenuIcon />
+          </IconButton>
+        )}
+
+        {/* Drawer (mobile) */}
+        <Drawer
+          anchor="right"
+          open={open}
+          onClose={() => setOpen(false)}
+          PaperProps={{ className: 'topbar-drawer' }}
+        >
+          <Box className="drawer-header">
+            <Box component="img" src={Logo} alt="BookDev Logo" className="drawer-logo" />
+            <IconButton onClick={() => setOpen(false)} aria-label="close" className="drawer-close">
+              <CloseIcon />
+            </IconButton>
+          </Box>
+          <List>
+            {SECTIONS.map((s) => (
+              <ListItem key={s.id} disablePadding>
+                <ListItemButton onClick={() => scrollToId(s.id)} selected={active === s.id} className="drawer-item">
+                  <ListItemIcon className="drawer-icon">{s.icon}</ListItemIcon>
+                  <ListItemText primary={s.label} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </Drawer>
+      </Toolbar>
+    </AppBar>
   );
 };
 

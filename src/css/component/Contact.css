@@ -1,0 +1,112 @@
+:root {
+    --orange: #FF6B2B;
+    --text-muted: #DADADA;
+}
+
+.contact-section {
+    padding: clamp(28px, 6vw, 60px) 0;
+}
+
+/* Heading */
+.contact-head .eyebrow {
+    color: var(--orange);
+    letter-spacing: .12em;
+    font-weight: 700;
+}
+
+.contact-head .title {
+    font-weight: 800;
+    letter-spacing: .2px;
+}
+
+.contact-head .sub {
+    color: var(--text-muted);
+}
+
+/* Grid */
+.contact-grid {
+    margin-top: 14px;
+}
+
+/* Tile */
+.tile {
+    --bg: rgba(255, 255, 255, .04);
+    --bd: rgba(255, 255, 255, .08);
+    display: grid;
+    place-items: center;
+    gap: 8px;
+    background: linear-gradient(180deg, var(--bg), rgba(255, 255, 255, .02));
+    border: 1px solid var(--bd);
+    border-radius: 16px;
+    padding: 18px 10px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .25s ease, border-color .2s ease, background .25s ease;
+}
+
+.tile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .35);
+    border-color: rgba(255, 107, 43, .35);
+}
+
+.tile:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, .12), 0 0 0 6px rgba(255, 107, 43, .25);
+}
+
+.tile.is-copied {
+    border-color: var(--orange);
+    box-shadow: 0 14px 34px rgba(255, 107, 43, .35);
+}
+
+.tile-icon-wrap {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    display: grid;
+    place-items: center;
+}
+
+.ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 0 6px rgba(255, 107, 43, .15) inset;
+    opacity: .85;
+}
+
+.tile-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50% !important;
+    background: rgba(255, 107, 43, .1) !important;
+    color: var(--orange) !important;
+}
+
+.tile-label {
+    font-weight: 600;
+    letter-spacing: .2px;
+}
+
+/* Tip */
+.tip {
+    display: block;
+    margin-top: 12px;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .tile-icon-wrap {
+        width: 56px;
+        height: 56px;
+    }
+
+    .tile-icon {
+        width: 56px;
+        height: 56px;
+    }
+}

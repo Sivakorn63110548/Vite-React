@@ -1,0 +1,241 @@
+:root {
+  --orange: #FF6B2B;
+  --text-muted: #DADADA;
+  --bg-900: #0b0c10;
+  --bg-800: #12131a;
+  --glass: rgba(18, 19, 26, 0.55);
+  --glass-strong: rgba(18, 19, 26, 0.75);
+  --ring: rgba(255, 107, 43, 0.25);
+  --white-06: rgba(255, 255, 255, .06);
+  --white-08: rgba(255, 255, 255, .08);
+}
+
+.topbar-appbar {
+  position: fixed;
+  inset-inline: 0 !important;
+  top: 0;
+  background: linear-gradient(180deg, rgba(11, 12, 16, 1.78) 0%, rgba(11, 12, 16, 1) 100%) !important;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid var(--white-06);
+  border-radius: 35px;
+  width: min(1100px, 92%);
+  margin: 12px auto 0;
+  color: #e7e7ef;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .42);
+  overflow: hidden;
+  isolation: isolate;
+  max-width: 95rem;
+}
+
+.topbar-appbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(180deg, rgba(11, 12, 16, 1.78) 0%, rgba(11, 12, 16, 1) 100%) !important;
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: .5;
+}
+
+.topbar-appbar.is-scrolled {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .55);
+  transform: translateZ(0);
+}
+
+.topbar-progress {
+  height: 3px !important;
+  border-radius: 0 0 6px 6px;
+  background: var(--white-06) !important;
+}
+
+.topbar-progress .MuiLinearProgress-bar {
+  background: linear-gradient(90deg, var(--orange), #ff915f) !important;
+}
+
+.topbar-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(6px, 1vw, 12px);
+  padding-inline: clamp(8px, 1.6vw, 16px) !important;
+}
+
+.topbar-menu {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: clamp(4px, .8vw, 10px);
+}
+
+.topbar-menu.left {
+  justify-content: flex-start;
+}
+
+.topbar-menu.right {
+  justify-content: flex-end;
+}
+
+.topbar-btn {
+  --pad-x: clamp(12px, 1.2vw, 16px);
+  color: #f9fafb !important;
+  text-transform: none !important;
+  border-radius: 999px !important;
+  padding: 10px 10% var(--pad-x) !important;
+  background: transparent !important;
+  position: relative;
+  overflow: hidden;
+  transition: background-color .2s ease, color .2s ease, box-shadow .25s ease, transform .15s ease;
+}
+
+.topbar-btn::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 6px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--orange), #ff915f);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform .25s ease;
+  opacity: .9;
+}
+
+.topbar-btn:not(.active):hover {
+  background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .02)) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .25), 0 0 0 3px var(--ring);
+  transform: translateY(-1px);
+}
+
+.topbar-btn:not(.active):hover::after {
+  transform: scaleX(1);
+}
+
+.topbar-btn.active {
+  background: radial-gradient(120% 140% at 0% 0%, rgba(255, 107, 43, .35) 0%, rgba(255, 107, 43, .22) 45%, rgba(255, 107, 43, .12) 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 8px 26px rgba(255, 107, 43, .34);
+}
+
+.topbar-btn.active::after {
+  transform: scaleX(1);
+}
+
+.topbar-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .12), 0 0 0 6px var(--ring);
+}
+
+.topbar-logo-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0;
+  min-width: clamp(140px, 18vw, 220px);
+}
+
+.topbar-glow {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 107, 43, .28), rgba(255, 107, 43, 0) 60%);
+  filter: blur(20px);
+  z-index: 0;
+}
+
+.topbar-logo-chip {
+  position: relative;
+  z-index: 1;
+  border-radius: 14px;
+  padding: 6px 12px;
+}
+
+.topbar-logo-img {
+  width: clamp(9rem, 16vw, 12.5rem);
+  height: clamp(2rem, 3vw, 2.6rem);
+  object-fit: contain;
+  display: block;
+}
+
+.topbar-burger {
+  color: #fff !important;
+  margin-left: auto !important;
+}
+
+.topbar-drawer {
+  width: min(86vw, 360px);
+  background: linear-gradient(180deg, #0d0e13, #11131a);
+  color: #fff;
+  backdrop-filter: blur(10px);
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--white-06);
+}
+
+.drawer-logo {
+  width: 10rem;
+  height: 2.2rem;
+  object-fit: contain;
+}
+
+.drawer-close {
+  color: var(--text-muted) !important;
+}
+
+.drawer-icon {
+  color: var(--orange) !important;
+  min-width: 36px;
+}
+
+.drawer-item {
+  transition: background .2s ease, transform .15s ease;
+  border-radius: 12px;
+  margin: 4px 8px;
+}
+
+.drawer-item.Mui-selected {
+  background: rgba(255, 107, 43, .16) !important;
+}
+
+.drawer-item:hover {
+  background: rgba(255, 107, 43, .24) !important;
+  transform: translateX(2px);
+}
+
+@media (max-width: 1200px) {
+  .topbar-appbar {
+    width: min(1000px, 94%);
+  }
+}
+
+@media (max-width: 992px) {
+  .topbar-appbar {
+    border-radius: 16px;
+  }
+
+  .topbar-logo-chip {
+    padding: 4px 10px;
+    border-radius: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .topbar-btn,
+  .topbar-btn::after,
+  .drawer-item {
+    transition: none !important;
+  }
+}
